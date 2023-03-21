@@ -5,6 +5,13 @@
             type="text"
             class="bg-gray-800 rounded-full w-30 pl-10 pr-3 py-1 focus:outline-none focus:outline-gray-600 text-white"
             placeholder="Search"
+            x-ref="search"
+            @keydown.window="
+                if(event.keyCode == 191) {
+                    event.preventDefault();
+                    $refs.search.focus();
+                }
+            "
             @focus="isOpen = true"
             @keydown="isOpen = true"
             @keydown.shift.tab="isOpen = false"
