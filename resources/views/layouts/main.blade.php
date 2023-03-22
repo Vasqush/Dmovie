@@ -31,7 +31,7 @@
                 </li>
             </ul>
             <div class="flex gap-5 sm:gap-0 items-center">
-                <livewire:search-drop-down>
+                <livewire:search-drop-down/>
                 <div class="mt-4 sm:ml-3 sm:mt-0">
                     <a href="#">
                         <img src="{{url('/assets/images/just_meee.png')}}" alt="avatar" class="w-7 h-7 rounded-full">

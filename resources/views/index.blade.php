@@ -8,7 +8,7 @@
             </h2>
             <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 lg:grid-cols-5">
                 @foreach($popularMovies as $popularMovie)
-                    <x-movie-card :movie="$popularMovie" :genres="$genres"/>
+                    <x-movie-card :movie="$popularMovie"/>
                 @endforeach
             </div>
         </div>
@@ -20,7 +20,7 @@
             </h2>
             <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 lg:grid-cols-5">
                 @foreach($nowPlayingMovies as $nowPlayingMovie)
-                    <x-movie-card :movie="$nowPlayingMovie" :genres="$genres"/>
+                    <x-movie-card :movie="$nowPlayingMovie"/>
                 @endforeach
             </div>
         </div>
