@@ -5,3 +5,13 @@
 .spinner {
     position: absolute;
 }
+
+.nav-out {
+    transition: ease-in-out 3s;
+    transform: translateY(-300px);
+}
+
+.nav-in {
+    transition: ease-in-out 2s;
+    transform: translateY(0px);
+}

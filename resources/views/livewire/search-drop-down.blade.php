@@ -31,7 +31,7 @@
                             <li>
                                 <a
                                     href="{{route('movies.show', $searchResult['id'])}}"
-                                    class="flex items-center block px-2 py-2 hover:bg-gray-700 overflow-hidden"
+                                    class="flex items-center block px-2 py-2 hover:bg-gray-700 overflow-hidden transition ease-in-out duration-200"
                                     @if($loop->last) @keydown.tab.exact="isOpen = false" @endif
                                 >
                                     @if($searchResult['poster_path'])

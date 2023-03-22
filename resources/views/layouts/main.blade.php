@@ -10,8 +10,8 @@
     @livewireStyles
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="font-sans bg-gray-900 text-yellow-500">
-    <nav class="border-b border-gray-800">
+<body class="font-sans pt-24 sm:pt-16 bg-gray-900 text-yellow-500">
+    <nav class="nav fixed top-0 bg-gray-900 z-50 w-full border-b border-gray-800" id="nav">
         <div class="mx-auto my-5 px-6 flex flex-col sm:flex-row sm:my-5 items-center justify-between">
             <ul class="flex items-center">
                 <li class="">
@@ -27,7 +27,7 @@
                     <a href="#">TV Shows</a>
                 </li>
                 <li class="ml-4 md:ml-8 hover:text-yellow-600">
-                    <a href="#">Actors</a>
+                    <a href="{{route('actors.index')}}">Actors</a>
                 </li>
             </ul>
             <div class="flex gap-5 sm:gap-0 items-center">
@@ -42,5 +42,63 @@
     </nav>
     @yield('content')
     @livewireScripts
+    @yield('scripts')
 </body>
 </html>
+
+<script>
+    (function(){
+
+        let doc = document.documentElement;
+        let w   = window;
+
+        let curScroll;
+        let prevScroll = w.scrollY || doc.scrollTop;
+        let curDirection = 0;
+        let prevDirection = 0;
+
+        let header = document.getElementById('nav');
+        let toggled;
+        let threshold = 200;
+
+        let checkScroll = function() {
+            curScroll = w.scrollY || doc.scrollTop;
+            if(curScroll > prevScroll) {
+                // scrolled down
+                curDirection = 2;
+            }
+            else {
+                //scrolled up
+                curDirection = 1;
+            }
+
+            if(curDirection !== prevDirection) {
+                toggled = toggleHeader();
+            }
+
+            prevScroll = curScroll;
+            if(toggled) {
+                prevDirection = curDirection;
+            }
+        };
+
+        let toggleHeader = function() {
+            toggled = true;
+            if(curDirection === 2 && curScroll > threshold) {
+                header.classList.add('nav-out');
+                header.classList.remove('nav-in')
+            }
+            else if (curDirection === 1) {
+                header.classList.add('nav-in')
+                header.classList.remove('nav-out');
+            }
+            else {
+                toggled = false;
+            }
+            return toggled;
+        };
+
+        window.addEventListener('scroll', checkScroll);
+
+    })();
+</script>

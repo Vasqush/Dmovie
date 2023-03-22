@@ -1,5 +1,5 @@
 <div class="mt-8">
-    <a href="{{route('movies.show', $movie['id'])}}" class="hover:opacity-70">
+    <a href="{{route('movies.show', $movie['id'])}}" class="hover:opacity-70 transition ease-in-out duration-200">
         <img src="{{$movie['poster_path']}}" alt="{{$movie['title']}}">
     </a>
     <div>

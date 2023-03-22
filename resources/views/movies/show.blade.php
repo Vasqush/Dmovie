@@ -99,7 +99,4 @@
             </div>
         </div>
     </div>
-    <div>
-        <p>More movies</p>
-    </div>
 @endsection
