@@ -30,12 +30,23 @@
                     <a href="{{route('actors.index')}}">Actors</a>
                 </li>
             </ul>
+
             <div class="flex gap-5 sm:gap-0 items-center">
                 <livewire:search-drop-down/>
-                <div class="mt-4 sm:ml-3 sm:mt-0">
-                    <a href="#">
-                        <img src="{{url('/assets/images/just_meee.png')}}" alt="avatar" class="w-7 h-7 rounded-full">
-                    </a>
+                <div class="mt-4 sm:ml-3 sm:mt-0 flex items-center">
+                    @auth
+                        <form action="/logout" method="post" class="bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 mr-4">
+                            @csrf
+
+                            <button type="submit" class="uppercase" >Log Out</button>
+                        </form>
+                        <a href="#">
+                            <img src="{{url('/assets/images/just_meee.png')}}" alt="avatar" class="w-7 h-7 rounded-full">
+                        </a>
+                    @else
+                        <a href="/register" class="bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 uppercase">Register</a>
+                        <a href="/login" class="ml-4 bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 uppercase">login</a>
+                    @endauth
                 </div>
             </div>
         </div>
