@@ -16,7 +16,7 @@ class MovieViewModel extends ViewModel
     public function movieDetails()
     {
         return collect($this->movieDetails)->merge([
-            'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $this->movieDetails['poster_path'],
+            'poster_path' => 'https://image.tmdb.org/t/p/w300/' . $this->movieDetails['poster_path'],
             'vote_average' => $this->movieDetails['vote_average'] * 10 . '%',
             'release_date' => Carbon::parse($this->movieDetails['release_date'])->format('d M, Y'),
             'genres' => collect($this->movieDetails['genres'])->pluck('name')->flatten()->implode(', '),
