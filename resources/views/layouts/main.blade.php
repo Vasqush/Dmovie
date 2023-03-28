@@ -38,7 +38,7 @@
                         <form action="/logout" method="post" class="bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 mr-4">
                             @csrf
 
-                            <button type="submit"class="uppercase" >Log Out</button>
+                            <button type="submit" class="uppercase" >Log Out</button>
                         </form>
                         <a href="#">
                             <img src="{{url('/assets/images/just_meee.png')}}" alt="avatar" class="w-7 h-7 rounded-full">
