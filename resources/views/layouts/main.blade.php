@@ -24,7 +24,7 @@
                     <a href="{{route('movies.index')}}">Movies</a>
                 </li>
                 <li class="ml-4 md:ml-8 hover:text-yellow-600">
-                    <a href="#">TV Shows</a>
+                    <a href="{{route('tv.index')}}">TV Shows</a>
                 </li>
                 <li class="ml-4 md:ml-8 hover:text-yellow-600">
                     <a href="{{route('actors.index')}}">Actors</a>

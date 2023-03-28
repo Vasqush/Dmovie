@@ -46,19 +46,22 @@ class ActorViewModel extends ViewModel
     {
         $castTitles = collect($this->credits)->get('cast');
 
-        return collect($castTitles)->where('media_type', 'movie')->sortByDesc('popularity')->take(8)->map(function ($title) {
-            if (isset($title['title'])) {
-                $title['name'] = $title['title'];
-            }
-            return collect($title)->merge([
-                'poster_path' => $title['poster_path']
-                    ? 'https://image.tmdb.org/t/p/w185/' . $title['poster_path']
+        return collect($castTitles)->sortByDesc('popularity')->take(8)->map(function ($movie) {
+            $releaseDate = $movie['release_date'] ?? $movie['first_air_date'] ?? null;
+
+            $title = $movie['title'] ?? $movie['name'] ?? 'Untitled';
+
+            return collect($movie)->merge([
+                'poster_path' => $movie['poster_path']
+                    ? 'https://image.tmdb.org/t/p/w185/' . $movie['poster_path']
                     : 'https://via.placeholder.com/185x278',
-                'media_type' => \Str::ucfirst($title['media_type']),
-            ])->only([
-                'poster_path', 'id', 'media_type', 'name',
+                'release_date' => $releaseDate,
+                'release_year' => isset($releaseDate) ? Carbon::parse($releaseDate)->format('Y') : 'Future',
+                'title' => $title,
+                'character' => $movie['character'].ob_get_length() < 2 ? 'N/A' : $movie['character'],
+                'linkToPage' => $movie['media_type'] == 'movie' ? route('movies.show', $movie['id']) : route('tv.show', $movie['id']),
             ]);
-        });
+        })->dump();
     }
     public function credits()
     {

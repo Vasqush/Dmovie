@@ -46,7 +46,7 @@
                                 <img class="hover:opacity-80" src="{{$knownForTitle['poster_path']}}" alt="">
                             </a>
                             <div class="mt-3">
-                                <a class="text-white font-semibold hover:opacity-80" href="#">{{$knownForTitle['name']}}</a>
+                                <a class="text-white font-semibold hover:opacity-80" href="#">{{$knownForTitle['title']}}</a>
                             </div>
                         </div>
                     @endforeach
