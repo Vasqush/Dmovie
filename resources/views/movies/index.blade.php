@@ -25,4 +25,5 @@
             </div>
         </div>
     </div>
+    @extends('components.flash')
 @endsection
