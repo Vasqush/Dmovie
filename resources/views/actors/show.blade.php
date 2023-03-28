@@ -42,11 +42,11 @@
                 <div class="grid justify-center gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                     @foreach($knownForTitles as $knownForTitle)
                         <div class="mt-3">
-                            <a href="{{route('movies.show', $knownForTitle['id'])}}">
+                            <a href="{{$knownForTitle['linkToPage']}}">
                                 <img class="hover:opacity-80" src="{{$knownForTitle['poster_path']}}" alt="">
                             </a>
                             <div class="mt-3">
-                                <a class="text-white font-semibold hover:opacity-80" href="#">{{$knownForTitle['title']}}</a>
+                                <a class="text-white font-semibold hover:opacity-80" href="{{$knownForTitle['linkToPage']}}">{{$knownForTitle['title']}}</a>
                             </div>
                         </div>
                     @endforeach
