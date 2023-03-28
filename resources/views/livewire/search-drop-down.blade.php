@@ -28,23 +28,21 @@
                 <ul>
                     @foreach($searchResults as $searchResult)
                         <div class="border-b border-gray-700">
-                            <li>
-                                <a
-                                    href="{{route('movies.show', $searchResult['id'])}}"
-                                    class="flex items-center block px-2 py-2 hover:bg-gray-700 overflow-hidden transition ease-in-out duration-200"
-                                    @if($loop->last) @keydown.tab.exact="isOpen = false" @endif
-                                >
-                                    @if($searchResult['poster_path'])
-                                        <img src="{{'https://image.tmdb.org/t/p/w500/' . $searchResult['poster_path']}}" width="40" alt="{{$searchResult['original_title']}}">
-                                    @else
-                                        <img src="https://via.placeholder.com/40x60" alt="{{$searchResult['original_title']}}">
-                                    @endif
-                                    <div class="flex flex-col ml-3">
-                                        <span class="font-semibold">{{$searchResult['original_title']}}</span>
-                                        <span class="text-gray-500 text-xs">{{\Carbon\Carbon::parse($searchResult['release_date'])->format('d M, Y')}}</span>
-                                    </div>
-                                </a>
-                            </li>
+                            <a
+                                href="{{route('movies.show', $searchResult['id'])}}"
+                                class="flex items-center block px-2 py-2 hover:bg-gray-700 overflow-hidden transition ease-in-out duration-200"
+                                @if($loop->last) @keydown.tab.exact="isOpen = false" @endif
+                            >
+                                @if($searchResult['poster_path'])
+                                    <img src="{{'https://image.tmdb.org/t/p/w500/' . $searchResult['poster_path']}}" width="40" alt="{{$searchResult['original_title']}}">
+                                @else
+                                    <img src="https://via.placeholder.com/40x60" alt="{{$searchResult['original_title']}}">
+                                @endif
+                                <div class="flex flex-col ml-3">
+                                    <span class="font-semibold">{{$searchResult['original_title']}}</span>
+                                    <span class="text-gray-500 text-xs">{{\Carbon\Carbon::parse($searchResult['release_date'])->format('d M, Y')}}</span>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
                 </ul>

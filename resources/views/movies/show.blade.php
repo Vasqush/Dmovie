@@ -5,7 +5,7 @@
     {{--    Movie Details--}}
     <div class="movie-info border-b border-gray-800">
         <div class="mx-auto px-8 py-8 md:pt-12 flex flex-col md:flex-row">
-            <img src="{{$movieDetails['poster_path']}}" alt="{{$movieDetails['title']}}" class="max-w-80 md:w-80">
+            <img class="h-max" src="{{$movieDetails['poster_path']}}" alt="{{$movieDetails['title']}}">
             <div class="mt-5 md:mt-0 md:ml-10 lg:ml-20">
                 <h1 class="text-4xl font-semibold">{{$movieDetails['original_title']}}</h1>
                 <div class="mt-2 text-gray-300 text-md">
@@ -96,8 +96,8 @@
             <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 lg:grid-cols-5 text-center">
                 @foreach($movieDetails['cast'] as $cast)
                     <div class="mt-8">
-                        <a href="#" class="hover:opacity-70">
-                            <img src="{{'https://image.tmdb.org/t/p/w400/' . $cast['profile_path']}}" alt="actor1">
+                        <a href="{{route('actors.show', $cast['id'])}}" class="hover:opacity-70">
+                                <img src="{{'https://image.tmdb.org/t/p/w400/' . $cast['profile_path']}}" alt="actor1">
                         </a>
                         <div>
                             <a href="#" class="mt-3 text-lg text-gray-50 hover:text-gray-300">
