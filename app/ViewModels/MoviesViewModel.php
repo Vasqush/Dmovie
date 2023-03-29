@@ -37,13 +37,15 @@ class MoviesViewModel extends ViewModel
                return [$genre_id => $this->genres()->get($genre_id)];
             })->implode(', ');
 
+            $releaseDate = $movie['release_date'] ?? $movie['first_air_date'] ?? null;
+
             return collect($movie)->merge([
                 'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'],
                 'vote_average' => $movie['vote_average'] * 10 . '%',
-                'release_date' => Carbon::parse( $movie['release_date'])->format('d M, Y'),
+                'release_date' => Carbon::parse($releaseDate)->format('d M, Y') ?? '',
                 'genres' => $formattedGenre,
             ])->only([
-                'poster_path', 'id', 'genres_id', 'title', 'vote_average', 'overview', 'release_date', 'genres'
+                'poster_path', 'id', 'genre_ids', 'title', 'vote_average', 'overview', 'release_date', 'genres', 'haha',
             ]);
         });
     }

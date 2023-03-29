@@ -61,7 +61,7 @@ class ActorViewModel extends ViewModel
                 'character' => $movie['character'].ob_get_length() < 2 ? 'N/A' : $movie['character'],
                 'linkToPage' => $movie['media_type'] == 'movie' ? route('movies.show', $movie['id']) : route('tv.show', $movie['id']),
             ]);
-        })->dump();
+        });
     }
     public function credits()
     {
