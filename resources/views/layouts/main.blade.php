@@ -35,12 +35,11 @@
                 <livewire:search-drop-down/>
                 <div class="mt-4 sm:ml-3 sm:mt-0 flex items-center">
                     @auth
-                        <form action="/logout" method="post" class="bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 mr-4">
+                        <form action="/logout" method="post" class="flex items-center bg-yellow-500 text-gray-900 py-1 px-2 rounded-xl font-bold text-sm hover:bg-yellow-600 mr-4">
                             @csrf
-
                             <button type="submit" class="uppercase" >Log Out</button>
                         </form>
-                        <a href="#">
+                        <a href="#" class="uppercase">
                             {{ auth()->user()->username }}
                         </a>
                     @else
