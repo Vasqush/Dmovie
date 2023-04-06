@@ -9,6 +9,15 @@
     @vite('resources/css/app.css')
     @livewireStyles
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {{--Footer--}}
+    @vite('resources/css/style.css')
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
 </head>
 <body class="font-sans pt-24 sm:pt-16 bg-gray-900 text-yellow-500">
     <nav class="nav fixed top-0 bg-gray-900 z-50 w-full border-b border-gray-800" id="nav">
@@ -55,6 +64,30 @@
     @livewireScripts
     @yield('scripts')
 </body>
+<footer class="bg-gray-900">
+    <div class="footer">
+        <div class="row">
+            <a href="https://www.facebook.com/CADT.Academy?mibextid=ZbWKwL"><i class="fa fa-facebook"></i></a>
+            <a href="https://t.me/cadt_official"><i class="fa fa-telegram"></i></a>
+            <a href="https://www.cadt.edu.kh/"><i class="fa fa-google"></i></a>
+            {{--<a href="#"><i class="fa fa-twitter"></i></a>--}}
+        </div>
+
+        <div class="row">
+            <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Career</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            DMOVIE Copyright © 2023 Dmovie - All rights reserved || Designed Footer By: Kunvath
+        </div>
+    </div>
+</footer>
 </html>
 
 <script>
