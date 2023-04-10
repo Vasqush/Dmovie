@@ -17,7 +17,7 @@ class SessionsController extends Controller
            'password'=> 'required'
         ]);
 
-        if(auth()->attempt($attributes)){
+        if(! auth()->attempt($attributes)){
             throw ValidationException::withMessages([
                 'email'=>'Your provided credentials could not be verified'
             ]);
@@ -29,7 +29,7 @@ class SessionsController extends Controller
     }
 
     public function destroy(){
-        auth()->logout('');
+        auth()->logout();
 
         return redirect('/')->with('success', 'Goodbye!');
     }

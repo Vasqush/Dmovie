@@ -7,11 +7,11 @@
 }
 
 .nav-out {
-    transition: ease-in-out 3s;
+    transition: ease-in-out 2s;
     transform: translateY(-300px);
 }
 
 .nav-in {
-    transition: ease-in-out 2s;
+    transition: ease-in-out 1s;
     transform: translateY(0px);
 }
